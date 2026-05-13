@@ -1,8 +1,34 @@
 # oura-cli
 
-CLI tool to fetch health data from your Oura Ring via the Oura API v2.
+Zero-dependency Python CLI to fetch sleep, readiness, activity, HRV, and biometric data from your **Oura Ring** via the official [Oura API v2](https://cloud.ouraring.com/v2/docs).
 
-Zero dependencies beyond Python 3.10+ standard library. Runs with [uv](https://docs.astral.sh/uv/).
+- 🪶 **Zero dependencies** beyond Python 3.10+ stdlib — no `pip install`, no virtualenv soup
+- 🦞 **OpenClaw skill** included: [`zqchris/skills/oura`](https://github.com/zqchris/skills/tree/main/oura) — ask your AI assistant "how did I sleep?" and it just works
+- 🔐 **Local-only auth** — OAuth tokens live on your machine, no SaaS middleman, no telemetry
+- 🚀 **Runs with [`uv`](https://docs.astral.sh/uv/)** — single-file scripts, instant startup
+- 📅 **No date-range limit** — tested up to 365 days per query
+
+```bash
+# Today's full summary
+uv run oura-data.py today
+
+# A specific date
+uv run oura-data.py sleep --date 2026-03-15
+
+# A range
+uv run oura-data.py readiness --start 2026-04-01 --end 2026-04-30
+```
+
+## Use it with OpenClaw
+
+Pair this CLI with the [Oura OpenClaw skill](https://github.com/zqchris/skills/tree/main/oura) and your assistant can answer:
+
+- "How did I sleep last night?"
+- "Am I recovered enough to train hard today?"
+- "Show me my HRV trend last week"
+- "Why was my readiness low on March 12?"
+
+The skill grounds every answer in a live API call — no hallucinated numbers.
 
 ## Setup
 
